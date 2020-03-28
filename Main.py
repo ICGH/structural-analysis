@@ -8,23 +8,20 @@ import string
 
 class Beam:
     def __init__(self, length, LengthUnit, boundary_conditions=['Fixed','Fixed']):
-        if boundary_conditions[0].lower() == "fixed":
-            start_string = (f"//|\n"
-                            f"//|\n"
-                            f"//|\n")
-        #elif boundary_conditions[0].lower() == ""
+        if boundary_conditions[0].lower() == "fixed_left" and boundary_conditions[1].lower() == "fixed_left":
+            with open('Data/fixed_left', 'r') as f:
+                start_index = 'simple_support,simple_support,<start>'
+                end_index = 'simple_support,simple_support,<end>'
+                f.seek(start_index)
+                beam_string = f.read(end_index-start_index)
+                print(beam_string)
+        elif boundary_conditions[0].lower() == "pinned":
+            with open('data/pinned', 'r') as f:
+                beam_string = f.read()
 
 
-        print(f"{'-'*length} \n"
-              f"{boundary_conditions[0]}"
-              f""
-              f""
-              f""
-              f""
-              f""
-              f"{'-' *100}\n"
-              f"-{' '*40}Creating your beam.{' '*39}-\n"
-              f"{'-' *100}\n")
+
+        print(beam_string)
         self._length = length
         self._LengthUnit = LengthUnit
         self._BCend1 = boundary_conditions[0]
@@ -102,7 +99,7 @@ def main():
     #define inputs for BEAM class
     bar_length = 10
     bar_units = "in"
-    boundary = ['fixed','fixed']
+    boundary = ['fixed_left','fixed_left']
     #instantiate a beam.
     problem1 = Beam(bar_length, bar_units,boundary)
     #display Beam attributes
@@ -110,7 +107,7 @@ def main():
     #modify Beam attributes
     problem1.length = 50
     problem1.LengthUnit = "ft"
-    problem1.boundary_conditions = ["pinned", "fixed"]
+    problem1.boundary_conditions = ["pinned", "fixed_left"]
     # display Beam attributes
     problem1.definition()
 """

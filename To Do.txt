@@ -1,0 +1,3 @@
+continue working from Main.py
+modify lines 11 to 20 to read the data/textfiles and get the image of the selected loading and print to user.
+
