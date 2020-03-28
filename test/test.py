@@ -4,7 +4,8 @@ This script recreates the file data/boundary_conditions_backup.txt with all the 
 i = 1
 a = ""
 
-with open('test/all_boundary_options', "r") as f:
+with open('test/all_boundary_options.txt'
+          '', "r") as f:
     all_BC_options = [line.rstrip('\n') for line in f]
 
 with open("data/boundary_conditions_backup.txt", "w+") as f:
