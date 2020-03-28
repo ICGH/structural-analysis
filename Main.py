@@ -2,7 +2,6 @@
 This python script will generate 
 """
 import string
-import PyUnit.convert as unit
 
 
 
@@ -13,7 +12,7 @@ class Beam:
             start_string = (f"//|\n"
                             f"//|\n"
                             f"//|\n")
-        elif boundary_conditions[0].lower() == ""
+        #elif boundary_conditions[0].lower() == ""
 
 
         print(f"{'-'*length} \n"
